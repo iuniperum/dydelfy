@@ -1,0 +1,43 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="dydelfy.ustawienia"
+        Title="ustawienia">
+        <Grid>
+                <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Left" >X</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Left" >Y</TextBlock>
+                
+                <TextBlock Grid.Row="0" Grid.Column="1" Margin="5" >Plansza</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="plansza_x" Margin="5"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="plansza_y" Margin="5"></TextBox>
+                <TextBlock Grid.Row="3" Grid.Column="1" Margin="5"></TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="1" Margin="5" >Czas</TextBlock>
+                <TextBox Grid.Row="5" Grid.Column="1" x:Name="czas" Margin="5"></TextBox>
+                
+                <TextBlock Grid.Row="0" Grid.Column="2" Margin="5">Dydelfy</TextBlock>
+                <TextBox Grid.Row="1" Grid.Column="2" x:Name="dydelfy" Margin="5"></TextBox>
+                <TextBlock Grid.Row="2" Grid.Column="2" Margin="5">Krokodyle</TextBlock>
+                <TextBox Grid.Row="3" Grid.Column="2" x:Name="krokodyle" Margin="5"></TextBox>
+                <TextBlock Grid.Row="4" Grid.Column="2" Margin="5">Szopy</TextBlock>
+                <TextBox Grid.Row="5" Grid.Column="2" x:Name="szopy" Margin="5"></TextBox>
+                <Button Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Margin="10" Height="30" Width="110"
+                        Content="ZATWIERDŹ" Click="zatwierdz" HorizontalContentAlignment="Center"/>
+        </Grid>
+</Window>

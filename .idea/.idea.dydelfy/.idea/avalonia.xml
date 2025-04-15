@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="dydelfy/App.axaml" value="dydelfy/dydelfy.csproj" />
+        <entry key="dydelfy/MainWindow.axaml" value="dydelfy/dydelfy.csproj" />
+        <entry key="dydelfy/plansza.axaml" value="dydelfy/dydelfy.csproj" />
+        <entry key="dydelfy/ustawienia.axaml" value="dydelfy/dydelfy.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,27 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="dydelfy.MainWindow"
+        Title="dydelfy">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock HorizontalAlignment="Center" Margin="10"
+        >GDZIE JEST DYDELF</TextBlock>
+        <Button Grid.Row="1" HorizontalAlignment="Center" Margin="10" Height="30" Width="110"
+                Content="START" Click="start" HorizontalContentAlignment="Center"/>
+        <Button Grid.Row="2" HorizontalAlignment="Center" Margin="10" Height="30" Width="110"
+                Content="USTAWIENIA" Click="ustawienia" HorizontalContentAlignment="Center"/>
+        <Button Grid.Row="3" HorizontalAlignment="Center" Margin="10" Height="30" Width="110"
+                Content="KONIEC" Click="koniec" HorizontalContentAlignment="Center"/>
+        <TextBox Grid.Row="4" x:Name="test"></TextBox>
+    </Grid>
+</Window>
