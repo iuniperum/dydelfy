@@ -14,6 +14,6 @@ public partial class plansza : Window, INotifyPropertyChanged
     public plansza(MainWindow okno) {
         InitializeComponent();
         _main = okno;
-        DataContext = _main.plansza_reaktywna;
+        DataContext = _main;
     }
 }

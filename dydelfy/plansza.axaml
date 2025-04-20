@@ -32,20 +32,23 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ItemsControl ItemsSource="{Binding plansza_reaktywna.przyciski}">
+        <ItemsControl Grid.Row="1" Grid.Column="1" Grid.RowSpan="{Binding plansza_reaktywna._rzedy}" Grid.ColumnSpan="{Binding plansza_reaktywna._kolumny}" ItemsSource="{Binding plansza_reaktywna.przyciski}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
-                <Button Margin="2" >
+                <Border Margin="10,10,10,10"
+                        Padding="5">
+                    <Button>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding _rodzaj}" />
-                        <TextBlock Text="{Binding _czy}" Margin="5 0"/>
-                    </StackPanel>
-                </Button>
+                            <TextBlock Text="{Binding _rodzaj}" />
+                            <TextBlock Text="{Binding _czy}" Margin="5 0"/>
+                        </StackPanel>
+                    </Button>
+                </Border>
             </DataTemplate>
         </ItemsControl.ItemTemplate> 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="10" Rows="10" />
+                    <UniformGrid Columns="{Binding plansza_reaktywna._kolumny}" Rows="{Binding plansza_reaktywna._rzedy}" Width="800" Height="450" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>

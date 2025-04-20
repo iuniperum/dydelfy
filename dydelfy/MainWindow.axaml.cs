@@ -26,6 +26,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     }
     public class plansza_dane : ReactiveObject {
         public ObservableCollection<przycisk> przyciski { get; } = new();
+        private double kolumny;
+        private double rzedy;
+        public double _kolumny { get; set; }
+        public double _rzedy { get; set; }
     }
     public plansza_dane plansza_reaktywna { get; } = new();
 
@@ -34,7 +38,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         return p;
     }
 
-    public void start(object sender, RoutedEventArgs e) {
+    public void start(object sender, RoutedEventArgs e)
+    {
+        plansza_reaktywna._kolumny = x;
+        plansza_reaktywna._rzedy = y;
         for (int i = 0; i < x*y; i++) {
             plansza_reaktywna.przyciski.Add(dodanie(1, true));
         }
