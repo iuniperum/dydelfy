@@ -19,16 +19,30 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public double x = 0, y = 0;
     public double dydelfy = 0, krokodyle = 0, szopy = 0;
     public double czas = 0;
-    public ObservableCollection<przycisk> przyciski { get; } = new ObservableCollection<przycisk>();
+    public string lista = "";
     public MainWindow() {
         InitializeComponent();
         DataContext = this;
     }
+    public class plansza_dane : ReactiveObject {
+        public ObservableCollection<przycisk> przyciski { get; } = new();
+    }
+    public plansza_dane plansza_reaktywna { get; } = new();
+
+    private przycisk dodanie(int rodz, bool czy) {
+        przycisk p = new przycisk {_rodzaj = rodz, _czy = czy};
+        return p;
+    }
 
     public void start(object sender, RoutedEventArgs e) {
+        for (int i = 0; i < x*y; i++) {
+            plansza_reaktywna.przyciski.Add(dodanie(1, true));
+        }
         gra = new plansza(this);
         gra.Show();
     }
+    
+    public void nacisniecie_przycisku(object sender, RoutedEventArgs e) {}
     
     public void ustawienia(object sender, RoutedEventArgs e) {
         ustawienia ust = new ustawienia(this);
@@ -38,6 +52,11 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public void koniec(object sender, RoutedEventArgs e) {
         test.InnerRightContent = x;
         test.InnerLeftContent = y;
+        for (int i = 0; i < plansza_reaktywna.przyciski.Count; i++) {
+            lista += "/przycisk " + plansza_reaktywna.przyciski[i]._rodzaj;
+        }
+
+        przy.InnerLeftContent = lista;
         //gra.Close();
     }
 }

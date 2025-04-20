@@ -70,3 +70,4 @@
 /home/hoda/RiderProjects/dydelfy/dydelfy/obj/Debug/net9.0/dydelfy.csproj.Up2Date
 /home/hoda/RiderProjects/dydelfy/dydelfy/obj/Debug/net9.0/dydelfy.genruntimeconfig.cache
 /home/hoda/RiderProjects/dydelfy/dydelfy/obj/Debug/net9.0/ref/dydelfy.dll
+/home/hoda/RiderProjects/dydelfy/dydelfy/obj/Debug/net9.0/dydelfy.sourcelink.json
