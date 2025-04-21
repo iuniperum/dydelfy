@@ -11,6 +11,7 @@ public class przycisk : ReactiveObject {
     // 3 - szop
     private int rodzaj;
     private bool czy_uzyty;
+    private bool czy_mozna_zmieniac;
     
     public int _rodzaj {
         get => rodzaj;
@@ -19,6 +20,11 @@ public class przycisk : ReactiveObject {
     public bool _czy {
         get => czy_uzyty;
         set { czy_uzyty = value; OnPropertyChanged(); }
+    }
+    
+    public bool _czy_mozna {
+        get => czy_mozna_zmieniac;
+        set { czy_mozna_zmieniac = value; OnPropertyChanged(); }
     }
     
     public event PropertyChangedEventHandler PropertyChanged;

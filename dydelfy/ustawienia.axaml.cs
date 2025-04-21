@@ -22,5 +22,6 @@ public partial class ustawienia : Window
         _main.krokodyle = Convert.ToDouble(krokodyle.Text);
         _main.szopy = Convert.ToDouble(szopy.Text);
         _main.czas = Convert.ToDouble(czas.Text);
+        this.Close();
     }
 }

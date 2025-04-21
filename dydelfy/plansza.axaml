@@ -19,6 +19,8 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -32,12 +34,12 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ItemsControl Grid.Row="1" Grid.Column="1" Grid.RowSpan="{Binding plansza_reaktywna._rzedy}" Grid.ColumnSpan="{Binding plansza_reaktywna._kolumny}" ItemsSource="{Binding plansza_reaktywna.przyciski}">
+        <ItemsControl HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.RowSpan="{Binding plansza_reaktywna._rzedy}" Grid.ColumnSpan="{Binding plansza_reaktywna._kolumny}" ItemsSource="{Binding plansza_reaktywna.przyciski}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <Border Margin="10,10,10,10"
                         Padding="5">
-                    <Button>
+                    <Button Height="60" Width="60">
                     <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding _rodzaj}" />
                             <TextBlock Text="{Binding _czy}" Margin="5 0"/>
@@ -48,9 +50,10 @@
         </ItemsControl.ItemTemplate> 
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <UniformGrid Columns="{Binding plansza_reaktywna._kolumny}" Rows="{Binding plansza_reaktywna._rzedy}" Width="800" Height="450" />
+                    <UniformGrid Columns="{Binding plansza_reaktywna._kolumny}" Rows="{Binding plansza_reaktywna._rzedy}" />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
+        <TextBox Grid.Row="{Binding plansza_reaktywna._timer}"></TextBox>
     </Grid>
 </Window>
