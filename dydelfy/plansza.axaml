@@ -55,6 +55,5 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <TextBox Grid.Row="{Binding plansza_reaktywna._timer}"></TextBox>
-    </Grid>
+        <TextBox Grid.Row="{Binding plansza_reaktywna._timer}"></TextBox></Grid>
 </Window>

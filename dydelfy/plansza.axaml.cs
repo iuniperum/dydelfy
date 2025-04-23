@@ -22,6 +22,7 @@ public partial class plansza : Window, INotifyPropertyChanged
         if (sender is Button button) {
             if (_main.plansza_reaktywna.przyciski[Convert.ToInt32(button.Tag)]._uzyty == false) {
                 _main.plansza_reaktywna.przyciski[Convert.ToInt32(button.Tag)]._uzyty = true;
+                
             }
         }
     }

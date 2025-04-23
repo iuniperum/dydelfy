@@ -3,14 +3,11 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Windows.Input;
-using Avalonia.ReactiveUI;
 using System.IO;
-using System.Linq;
-using System.Reactive.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using ReactiveUI;
+using Avalonia.Media.Imaging;
+using SkiaSharp;
+using System.IO;
 
 namespace dydelfy;
 
@@ -93,11 +90,10 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public void koniec(object sender, RoutedEventArgs e) {
         test.InnerRightContent = x;
         test.InnerLeftContent = y;
-        for (int i = 0; i < plansza_reaktywna.przyciski.Count; i++) {
-            lista += "/przycisk " + plansza_reaktywna.przyciski[i]._rodzaj;
-        }
-
-        przy.InnerLeftContent = lista;
+        test.InnerLeftContent = lista;
+        var stream = new StreamReader("./obrazy/szop.jpg");
+        //var bitmap = new Bitmap(stream.ReadToEnd());
+        //przycisk.Source = bitmap;
         //gra.Close();
     }
 }
