@@ -9,15 +9,21 @@ public class przycisk : ReactiveObject {
     // 1 -  dydelf
     // 2 - krokodyl
     // 3 - szop
+    private int indeks;
     private int rodzaj;
     private bool czy_uzyty;
     private bool czy_mozna_zmieniac;
+    
+    public int _indeks {
+        get => indeks;
+        set { indeks = value; OnPropertyChanged(); }
+    }
     
     public int _rodzaj {
         get => rodzaj;
         set { rodzaj = value; OnPropertyChanged(); }
     }
-    public bool _czy {
+    public bool _uzyty {
         get => czy_uzyty;
         set { czy_uzyty = value; OnPropertyChanged(); }
     }

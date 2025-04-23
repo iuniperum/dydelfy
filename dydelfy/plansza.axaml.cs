@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Avalonia;
@@ -15,5 +16,21 @@ public partial class plansza : Window, INotifyPropertyChanged
         InitializeComponent();
         _main = okno;
         DataContext = _main;
+    }
+
+    public void odwrocenie(object sender, RoutedEventArgs e) {
+        if (sender is Button button) {
+            if (_main.plansza_reaktywna.przyciski[Convert.ToInt32(button.Tag)]._uzyty == false) {
+                _main.plansza_reaktywna.przyciski[Convert.ToInt32(button.Tag)]._uzyty = true;
+            }
+        }
+    }
+
+    public void zakrycie(object sender, RoutedEventArgs e) {
+        if (sender is Button button) {
+            if (_main.plansza_reaktywna.przyciski[Convert.ToInt32(button.Tag)]._uzyty == true) {
+                _main.plansza_reaktywna.przyciski[Convert.ToInt32(button.Tag)]._uzyty = false;
+            }        
+        }
     }
 }

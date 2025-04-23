@@ -34,15 +34,15 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ItemsControl HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.RowSpan="{Binding plansza_reaktywna._rzedy}" Grid.ColumnSpan="{Binding plansza_reaktywna._kolumny}" ItemsSource="{Binding plansza_reaktywna.przyciski}">
+        <ItemsControl x:Name="aktywna_plansza" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.RowSpan="{Binding plansza_reaktywna._rzedy}" Grid.ColumnSpan="{Binding plansza_reaktywna._kolumny}" ItemsSource="{Binding plansza_reaktywna.przyciski}">
         <ItemsControl.ItemTemplate>
             <DataTemplate>
                 <Border Margin="10,10,10,10"
                         Padding="5">
-                    <Button Height="60" Width="60">
+                    <Button Height="60" Width="60" Click="odwrocenie" Tag="{Binding _indeks}">
                     <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding _rodzaj}" />
-                            <TextBlock Text="{Binding _czy}" Margin="5 0"/>
+                            <TextBlock Text="_indeks" Margin="5 0"/>
                         </StackPanel>
                     </Button>
                 </Border>

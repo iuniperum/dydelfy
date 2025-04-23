@@ -37,8 +37,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     }
     public plansza_dane plansza_reaktywna { get; } = new();
 
-    private przycisk dodanie(int rodz, bool czy, bool mozna) {
-        przycisk p = new przycisk {_rodzaj = rodz, _czy = czy, _czy_mozna = mozna};
+    private przycisk dodanie(int rodz, bool czy, bool mozna, int ind) {
+        przycisk p = new przycisk {_rodzaj = rodz, _uzyty = czy, _czy_mozna = mozna, _indeks = ind};
         return p;
     }
 
@@ -49,7 +49,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         plansza_reaktywna._timer = y + 1;
         
         for (int i = 0; i < x*y; i++) {
-            plansza_reaktywna.przyciski.Add(dodanie(0, false, true));
+            plansza_reaktywna.przyciski.Add(dodanie(0, false, true, i));
         }
         
         Random rnd = new Random();
@@ -84,8 +84,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         gra = new plansza(this);
         gra.Show();
     }
-    
-    public void nacisniecie_przycisku(object sender, RoutedEventArgs e) {}
     
     public void ustawienia(object sender, RoutedEventArgs e) {
         ustawienia ust = new ustawienia(this);
