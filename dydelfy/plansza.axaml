@@ -41,7 +41,8 @@
                         Padding="5">
                     <Button Height="60" Width="60" Click="odwrocenie" Tag="{Binding _indeks}">
                     <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding _rodzaj}" />
+                        <Image Source="/obrazy/smietnik.jpg"></Image>
+                        <TextBlock Text="{Binding _rodzaj}" />
                             <TextBlock Text="_indeks" Margin="5 0"/>
                         </StackPanel>
                     </Button>
