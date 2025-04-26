@@ -40,10 +40,9 @@
                 <Border Margin="10,10,10,10"
                         Padding="5">
                     <Button Height="60" Width="60" Click="odwrocenie" Tag="{Binding _indeks}">
-                    <StackPanel Orientation="Horizontal">
-                        <Image Source="/obrazy/smietnik.jpg"></Image>
-                        <TextBlock Text="{Binding _rodzaj}" />
-                            <TextBlock Text="_indeks" Margin="5 0"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding _obrazek}" FontSize="40" HorizontalAlignment="Center" TextAlignment="Center" />
+                            <TextBlock Text="{Binding _rodzaj}" FontSize="40" />
                         </StackPanel>
                     </Button>
                 </Border>
@@ -55,5 +54,8 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <TextBox Grid.Row="{Binding plansza_reaktywna._timer}"></TextBox></Grid>
+        <TextBox Grid.Row="{Binding plansza_reaktywna._timer}"></TextBox>
+        <TextBox x:Name="wynik" Grid.Row="10" Grid.ColumnSpan="5"></TextBox>
+    </Grid>
+
 </Window>

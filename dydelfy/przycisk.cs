@@ -4,13 +4,15 @@ using ReactiveUI;
 
 namespace dydelfy;
 
-public class przycisk : ReactiveObject {
+public class przycisk : INotifyPropertyChanged {
     // 0 - pusty,
     // 1 -  dydelf
     // 2 - krokodyl
     // 3 - szop
     private int indeks;
     private int rodzaj;
+    private string obrazek;
+    private string zwierzak;
     private bool czy_uzyty;
     private bool czy_mozna_zmieniac;
     
@@ -22,6 +24,14 @@ public class przycisk : ReactiveObject {
     public int _rodzaj {
         get => rodzaj;
         set { rodzaj = value; OnPropertyChanged(); }
+    }
+    public string _obrazek {
+        get => obrazek;
+        set { obrazek = value; OnPropertyChanged(); }
+    }
+    public string _zwierzak {
+        get => zwierzak;
+        set { zwierzak = value; OnPropertyChanged(); }
     }
     public bool _uzyty {
         get => czy_uzyty;

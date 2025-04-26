@@ -23,10 +23,7 @@
         <Button Grid.Row="3" HorizontalAlignment="Center" Margin="10" Height="30" Width="110"
                 Content="KONIEC" Click="koniec" HorizontalContentAlignment="Center"/>
         <TextBox Grid.Row="4" x:Name="test"></TextBox>
-        <Button Grid.Row="5" x:Name="przy">
-            <StackPanel Orientation="Horizontal">
-                <Image x:Name="przycisk" Source="/obrazy/smietnik.jpg"></Image>
-            </StackPanel>
+        <Button Grid.Row="5" x:Name="przy" Content="🗑️">
         </Button>
     </Grid>
 </Window>
