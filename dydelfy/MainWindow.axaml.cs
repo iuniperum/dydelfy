@@ -92,11 +92,6 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     public void koniec(object sender, RoutedEventArgs e)
     {
-        test.InnerRightContent = x;
-        test.InnerLeftContent = y;
-        test.InnerLeftContent = lista;
-
-        przy.Content = "\ud83d\udc00";
-        //przycisk.Source = bitmap;
-    } //gra.Close();
+        gra.Close();
+    } 
 }

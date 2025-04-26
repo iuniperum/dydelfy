@@ -38,6 +38,7 @@ public partial class plansza : Window, INotifyPropertyChanged
                 if (znalezione_dydelfy == _main.dydelfy)
                 {
                     wynik.Text = "Znaleziono wszystkie dydelfy!";
+                    this.Close();
                 }
             }
             else if (nacisniety._rodzaj == 2)
