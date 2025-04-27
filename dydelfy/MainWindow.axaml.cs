@@ -27,24 +27,30 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public class plansza_dane : ReactiveObject {
         public ObservableCollection<przycisk> przyciski { get; } = new();
         private double kolumny;
+        public double _kolumny { get; set; }
+        
         private double rzedy;
+        public double _rzedy { get; set; }
+        
         private double timer;
+        public double _timer { get; set; }
+        
         private int pozostaly_czas;
-        public DispatcherTimer odliczanie;
-        public int _pozostaly_czas
-        {
+        public int _pozostaly_czas {
             get => pozostaly_czas;
             set => this.RaiseAndSetIfChanged(ref pozostaly_czas, value);
         }
-        public double _kolumny { get; set; }
-        public double _rzedy { get; set; }
-        public double _timer { get; set; }
+        
+        private int pozostaly_czas_krokodyl;
+        public int _pozostaly_czas_krokodyl {
+            get => pozostaly_czas_krokodyl;
+            set => this.RaiseAndSetIfChanged(ref pozostaly_czas, value);
+        }
+        
+        public DispatcherTimer odliczanie;
+        public DispatcherTimer odliczanie_krokodyle;
     }
     public plansza_dane plansza_reaktywna { get; } = new();
-    
-    public void CountdownViewModel() {
-        StartCountdown(10); 
-    }
 
     public void StartCountdown(int seconds) {
         plansza_reaktywna._pozostaly_czas = seconds;
@@ -64,6 +70,26 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         };
 
         plansza_reaktywna.odliczanie.Start();
+    }
+    public void dwie_sekundy() {
+        plansza_reaktywna._pozostaly_czas_krokodyl = 2;
+
+        plansza_reaktywna.odliczanie_krokodyle = new DispatcherTimer {
+            Interval = TimeSpan.FromSeconds(1)
+        };
+
+        plansza_reaktywna.odliczanie_krokodyle.Tick += (sender, e) => {
+            plansza_reaktywna._pozostaly_czas_krokodyl--;
+
+            if (plansza_reaktywna._pozostaly_czas_krokodyl <= 0) {
+                plansza_reaktywna.odliczanie_krokodyle.Stop();
+                Console.WriteLine("KONIEC");
+                gra.wynik.Text = "za późno!";
+                gra.Close();
+            }
+        };
+
+        plansza_reaktywna.odliczanie_krokodyle.Start();
     }
 
     private przycisk dodanie(int rodz, bool czy, bool mozna, int ind, string ob) {
