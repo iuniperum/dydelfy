@@ -41,9 +41,8 @@ public partial class plansza : Window, INotifyPropertyChanged
                     this.Close();
                 }
             }
-            else if (nacisniety._rodzaj == 2)
-            {
-
+            else if (nacisniety._rodzaj == 2) {
+                
             }
             else if (nacisniety._rodzaj == 3)
             {

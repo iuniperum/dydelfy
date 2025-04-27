@@ -59,6 +59,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
             if (plansza_reaktywna._pozostaly_czas <= 0) {
                 plansza_reaktywna.odliczanie.Stop();
                 Console.WriteLine("KONIEC");
+                gra.Close();
             }
         };
 
