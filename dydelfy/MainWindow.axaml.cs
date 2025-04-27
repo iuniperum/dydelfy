@@ -44,7 +44,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         private int pozostaly_czas_krokodyl;
         public int _pozostaly_czas_krokodyl {
             get => pozostaly_czas_krokodyl;
-            set => this.RaiseAndSetIfChanged(ref pozostaly_czas, value);
+            set => this.RaiseAndSetIfChanged(ref pozostaly_czas_krokodyl, value);
         }
         
         public DispatcherTimer odliczanie;
