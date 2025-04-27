@@ -22,7 +22,6 @@
                 Content="USTAWIENIA" Click="ustawienia" HorizontalContentAlignment="Center"/>
         <Button Grid.Row="3" HorizontalAlignment="Center" Margin="10" Height="30" Width="110"
                 Content="KONIEC" Click="koniec" HorizontalContentAlignment="Center"/>
-        <Button Grid.Row="5" x:Name="przy" Content="🗑️">
-        </Button>
+        <TextBlock x:Name="komunikat" Grid.Row="4" HorizontalAlignment="Center" Width="200" Margin="40"></TextBlock>
     </Grid>
 </Window>

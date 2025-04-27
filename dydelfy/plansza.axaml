@@ -42,7 +42,6 @@
                     <Button Height="60" Width="60" Click="odwrocenie" Tag="{Binding _indeks}">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding _obrazek}" FontSize="40" HorizontalAlignment="Center" TextAlignment="Center" />
-                            <TextBlock Text="{Binding _rodzaj}" FontSize="40" />
                         </StackPanel>
                     </Button>
                 </Border>

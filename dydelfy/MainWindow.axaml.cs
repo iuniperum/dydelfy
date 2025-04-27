@@ -15,11 +15,12 @@ namespace dydelfy;
 public partial class MainWindow : Window, INotifyPropertyChanged
 {
     private plansza gra;
-    public double x = 0, y = 0;
-    public double dydelfy = 0, krokodyle = 0, szopy = 0;
+    public double x = 5, y = 5;
+    public double dydelfy = 3, krokodyle = 1, szopy = 5;
     public double dydelf = 0, krokodyl = 0, szop = 0;
     public string lista = "";
-    public int czas = 0;
+    public int czas = 60;
+    public bool czy_dobre_wartosci = true;
     public MainWindow() {
         InitializeComponent();
         DataContext = this;
@@ -86,6 +87,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
                 Console.WriteLine("KONIEC");
                 gra.wynik.Text = "za późno!";
                 gra.Close();
+                reset();
             }
         };
 
@@ -98,49 +100,64 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     }
     
     public void start(object sender, RoutedEventArgs e) {
-        plansza_reaktywna._kolumny = x;
-        plansza_reaktywna._rzedy = y;
-        plansza_reaktywna._timer = y + 1;
-        
-        for (int i = 0; i < x*y; i++) {
-            plansza_reaktywna.przyciski.Add(dodanie(0, false, true, i, "\ud83d\uddd1\ufe0f"));
-        }
-        
-        Random rnd = new Random();
+        if (czy_dobre_wartosci) {
+            plansza_reaktywna._kolumny = x;
+            plansza_reaktywna._rzedy = y;
+            plansza_reaktywna._timer = y + 1;
 
-        for (int i = 0; i < dydelfy; i++) {
-            dydelf = rnd.Next(0, plansza_reaktywna.przyciski.Count);
-            while (plansza_reaktywna.przyciski[Convert.ToInt32(dydelf)]._czy_mozna == false) {
+            for (int i = 0; i < x * y; i++)
+            {
+                plansza_reaktywna.przyciski.Add(dodanie(0, false, true, i, "\ud83d\uddd1\ufe0f"));
+            }
+
+            Random rnd = new Random();
+
+            for (int i = 0; i < dydelfy; i++)
+            {
                 dydelf = rnd.Next(0, plansza_reaktywna.przyciski.Count);
+                while (plansza_reaktywna.przyciski[Convert.ToInt32(dydelf)]._czy_mozna == false)
+                {
+                    dydelf = rnd.Next(0, plansza_reaktywna.przyciski.Count);
+                }
+
+                plansza_reaktywna.przyciski[Convert.ToInt32(dydelf)]._rodzaj = 1;
+                plansza_reaktywna.przyciski[Convert.ToInt32(dydelf)]._zwierzak = "\ud83e\udda1";
+                plansza_reaktywna.przyciski[Convert.ToInt32(dydelf)]._czy_mozna = false;
             }
-            plansza_reaktywna.przyciski[Convert.ToInt32(dydelf)]._rodzaj = 1;
-            plansza_reaktywna.przyciski[Convert.ToInt32(dydelf)]._zwierzak = "\ud83e\udda1";
-            plansza_reaktywna.przyciski[Convert.ToInt32(dydelf)]._czy_mozna = false;
-        }
-        
-        for (int i = 0; i < krokodyle; i++) {
-            krokodyl = rnd.Next(0, plansza_reaktywna.przyciski.Count);
-            while (plansza_reaktywna.przyciski[Convert.ToInt32(krokodyl)]._czy_mozna == false) {
+
+            for (int i = 0; i < krokodyle; i++)
+            {
                 krokodyl = rnd.Next(0, plansza_reaktywna.przyciski.Count);
+                while (plansza_reaktywna.przyciski[Convert.ToInt32(krokodyl)]._czy_mozna == false)
+                {
+                    krokodyl = rnd.Next(0, plansza_reaktywna.przyciski.Count);
+                }
+
+                plansza_reaktywna.przyciski[Convert.ToInt32(krokodyl)]._rodzaj = 2;
+                plansza_reaktywna.przyciski[Convert.ToInt32(krokodyl)]._zwierzak = "\ud83d\udc0a";
+                plansza_reaktywna.przyciski[Convert.ToInt32(krokodyl)]._czy_mozna = false;
             }
-            plansza_reaktywna.przyciski[Convert.ToInt32(krokodyl)]._rodzaj = 2;
-            plansza_reaktywna.przyciski[Convert.ToInt32(krokodyl)]._zwierzak = "\ud83d\udc0a";
-            plansza_reaktywna.przyciski[Convert.ToInt32(krokodyl)]._czy_mozna = false;
-        }
-        
-        for (int i = 0; i < szopy; i++) {
-            szop = rnd.Next(0, plansza_reaktywna.przyciski.Count);
-            while (plansza_reaktywna.przyciski[Convert.ToInt32(szop)]._czy_mozna == false) {
+
+            for (int i = 0; i < szopy; i++)
+            {
                 szop = rnd.Next(0, plansza_reaktywna.przyciski.Count);
+                while (plansza_reaktywna.przyciski[Convert.ToInt32(szop)]._czy_mozna == false)
+                {
+                    szop = rnd.Next(0, plansza_reaktywna.przyciski.Count);
+                }
+
+                plansza_reaktywna.przyciski[Convert.ToInt32(szop)]._rodzaj = 3;
+                plansza_reaktywna.przyciski[Convert.ToInt32(szop)]._zwierzak = "\ud83e\udd9d";
+                plansza_reaktywna.przyciski[Convert.ToInt32(szop)]._czy_mozna = false;
             }
-            plansza_reaktywna.przyciski[Convert.ToInt32(szop)]._rodzaj = 3;
-            plansza_reaktywna.przyciski[Convert.ToInt32(szop)]._zwierzak = "\ud83e\udd9d";
-            plansza_reaktywna.przyciski[Convert.ToInt32(szop)]._czy_mozna = false;
+
+            gra = new plansza(this);
+            gra.Show();
+            StartCountdown(czas);
         }
-        
-        gra = new plansza(this);
-        gra.Show();
-        StartCountdown(czas);
+        else {
+            komunikat.Text = "podaj poprawne wartości!";
+        }
     }
     
     public void ustawienia(object sender, RoutedEventArgs e) {
@@ -150,5 +167,15 @@ public partial class MainWindow : Window, INotifyPropertyChanged
 
     public void koniec(object sender, RoutedEventArgs e) {
         gra.Close();
-    } 
+        reset();
+    }
+
+    public void reset() {
+        x = 5;
+        y = 5;
+        dydelfy = 3;
+        krokodyle = 1;
+        szopy = 5;
+        czas = 60;
+    }
 }

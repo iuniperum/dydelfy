@@ -25,20 +25,21 @@
                 <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Right" VerticalAlignment="Center" >Y</TextBlock>
                 
                 <TextBlock Grid.Row="0" Grid.Column="1" Margin="5" >Plansza</TextBlock>
-                <TextBox Grid.Row="1" Grid.Column="1" x:Name="plansza_x" Margin="5"></TextBox>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="plansza_y" Margin="5"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="1" Watermark="1 - 10" x:Name="plansza_x" Margin="5"></TextBox>
+                <TextBox Grid.Row="2" Grid.Column="1" Watermark="1 - 10" x:Name="plansza_y" Margin="5"></TextBox>
                 <TextBlock Grid.Row="3" Grid.Column="1" Margin="5"></TextBlock>
                 <TextBlock Grid.Row="4" Grid.Column="1" Margin="5" >Czas</TextBlock>
                 <TextBox Grid.Row="5" Grid.Column="1" x:Name="czas" Margin="5"></TextBox>
                 
                 <TextBlock Grid.Row="0" Grid.Column="2" Margin="5">Dydelfy</TextBlock>
-                <TextBox Grid.Row="1" Grid.Column="2" x:Name="dydelfy" Margin="5"></TextBox>
+                <TextBox Grid.Row="1" Grid.Column="2" Watermark="1 - 6" x:Name="dydelfy" Margin="5"></TextBox>
                 <TextBlock Grid.Row="2" Grid.Column="2" Margin="5">Krokodyle</TextBlock>
-                <TextBox Grid.Row="3" Grid.Column="2" x:Name="krokodyle" Margin="5"></TextBox>
+                <TextBox Grid.Row="3" Grid.Column="2" Watermark="0 - 1" x:Name="krokodyle" Margin="5"></TextBox>
                 <TextBlock Grid.Row="4" Grid.Column="2" Margin="5">Szopy</TextBlock>
-                <TextBox Grid.Row="5" Grid.Column="2" x:Name="szopy" Margin="5"></TextBox>
+                <TextBox Grid.Row="5" Grid.Column="2" Watermark="3 - 8" x:Name="szopy" Margin="5"></TextBox>
                 
                 <Button Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" Margin="10" Height="30" Width="110"
                         Content="ZATWIERDŹ" Click="zatwierdz" HorizontalContentAlignment="Center"/>
+                <TextBox x:Name="komunikat" Grid.Row="7" Grid.Column="1" Width=""></TextBox>
         </Grid>
 </Window>
