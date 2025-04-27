@@ -21,7 +21,7 @@ public partial class ustawienia : Window
         _main.dydelfy = Convert.ToDouble(dydelfy.Text);
         _main.krokodyle = Convert.ToDouble(krokodyle.Text);
         _main.szopy = Convert.ToDouble(szopy.Text);
-        _main.czas = Convert.ToDouble(czas.Text);
+        _main.czas = Convert.ToInt32(czas.Text);
         this.Close();
     }
 }

@@ -8,6 +8,7 @@ using ReactiveUI;
 using Avalonia.Media.Imaging;
 using SkiaSharp;
 using System.IO;
+using Avalonia.Threading;
 
 namespace dydelfy;
 
@@ -17,8 +18,8 @@ public partial class MainWindow : Window, INotifyPropertyChanged
     public double x = 0, y = 0;
     public double dydelfy = 0, krokodyle = 0, szopy = 0;
     public double dydelf = 0, krokodyl = 0, szop = 0;
-    public double czas = 0;
     public string lista = "";
+    public int czas = 0;
     public MainWindow() {
         InitializeComponent();
         DataContext = this;
@@ -28,19 +29,48 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         private double kolumny;
         private double rzedy;
         private double timer;
+        private int pozostaly_czas;
+        public DispatcherTimer odliczanie;
+        public int _pozostaly_czas
+        {
+            get => pozostaly_czas;
+            set => this.RaiseAndSetIfChanged(ref pozostaly_czas, value);
+        }
         public double _kolumny { get; set; }
         public double _rzedy { get; set; }
         public double _timer { get; set; }
     }
     public plansza_dane plansza_reaktywna { get; } = new();
+    
+    public void CountdownViewModel() {
+        StartCountdown(10); 
+    }
+
+    public void StartCountdown(int seconds) {
+        plansza_reaktywna._pozostaly_czas = seconds;
+
+        plansza_reaktywna.odliczanie = new DispatcherTimer {
+            Interval = TimeSpan.FromSeconds(1)
+        };
+
+        plansza_reaktywna.odliczanie.Tick += (sender, e) => {
+            plansza_reaktywna._pozostaly_czas--;
+
+            if (plansza_reaktywna._pozostaly_czas <= 0) {
+                plansza_reaktywna.odliczanie.Stop();
+                Console.WriteLine("KONIEC");
+            }
+        };
+
+        plansza_reaktywna.odliczanie.Start();
+    }
 
     private przycisk dodanie(int rodz, bool czy, bool mozna, int ind, string ob) {
         przycisk p = new przycisk {_rodzaj = rodz, _uzyty = czy, _czy_mozna = mozna, _indeks = ind, _obrazek = ob};
         return p;
     }
     
-    public void start(object sender, RoutedEventArgs e)
-    {
+    public void start(object sender, RoutedEventArgs e) {
         plansza_reaktywna._kolumny = x;
         plansza_reaktywna._rzedy = y;
         plansza_reaktywna._timer = y + 1;
@@ -83,6 +113,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         
         gra = new plansza(this);
         gra.Show();
+        StartCountdown(czas);
     }
     
     public void ustawienia(object sender, RoutedEventArgs e) {
@@ -90,8 +121,7 @@ public partial class MainWindow : Window, INotifyPropertyChanged
         ust.Show();
     }
 
-    public void koniec(object sender, RoutedEventArgs e)
-    {
+    public void koniec(object sender, RoutedEventArgs e) {
         gra.Close();
     } 
 }

@@ -54,7 +54,7 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
         </ItemsControl>
-        <TextBox Grid.Row="{Binding plansza_reaktywna._timer}"></TextBox>
+        <TextBox Grid.Row="{Binding plansza_reaktywna._timer}" Text="{Binding plansza_reaktywna._pozostaly_czas}"></TextBox>
         <TextBox x:Name="wynik" Grid.Row="10" Grid.ColumnSpan="5"></TextBox>
     </Grid>
 
